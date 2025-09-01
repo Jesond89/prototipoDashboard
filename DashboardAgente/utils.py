@@ -258,18 +258,27 @@ def get_custom_css():
             color: white;
         }}
 
+        /* Estilos mejorados para el uploader de archivos */
         [data-testid="stFileUploader"] {{
+            /* Fondo blanco para el área de arrastrar y soltar */
             background-color: white !important;
             border: 2px dashed {ALXEDO_COLORS['primary_blue']} !important;
             border-radius: 10px;
             padding: 10px;
         }}
 
-        [data-testid="stFileUploader"] label, [data-testid="stFileUploader"] span, [data-testid="stFileUploader"] div, [data-testid="stFileUploader"] p {{
+        /* Color del texto principal del uploader: "Drag and drop file here" y "Limit..." */
+        [data-testid="stFileUploader"] p {{
+            color: {ALXEDO_COLORS['dark_blue']} !important; /* Texto oscuro para mayor contraste */
+        }}
+
+        /* Color del texto de ayuda del uploader (si lo hubiera dentro de un span) */
+        [data-testid="stFileUploader"] span {{
             color: {ALXEDO_COLORS['dark_blue']} !important;
         }}
 
-        [data-testid="stFileUploader-label"] + div button {{
+        /* Estilo para el botón de 'Browse files' */
+        [data-testid="stFileUploader"] section > div > button {{
             background-color: {ALXEDO_COLORS['primary_blue']} !important;
             color: white !important;
             border: none;
@@ -277,8 +286,15 @@ def get_custom_css():
             padding: 10px 20px;
         }}
 
-        .st-emotion-cache-1g8i730.e1f1d6z71 {{
-            color: {ALXEDO_COLORS['dark_blue']} !important;
+        /* Ajustes para el texto dentro del botón (si fuera necesario) */
+        [data-testid="stFileUploader"] section > div > button p {{
+            color: white !important;
         }}
+        
+        /* Esto es para asegurar que el label del uploader también tenga color blanco si está dentro del sidebar */
+        [data-testid="stSidebar"] .stFileUploader label {{
+            color: white !important;
+        }}
+
     </style>
     """
