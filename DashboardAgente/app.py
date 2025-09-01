@@ -271,39 +271,14 @@ def render_sidebar():
     """Renderiza la barra lateral."""
     st.sidebar.title("⚙️ Configuración")
     st.sidebar.markdown("Sube tu archivo CSV para empezar el análisis.")
-    
+    st.sidebar.markdown("**📁 Selecciona un archivo CSV**")
     uploaded_file = st.sidebar.file_uploader(
         "**Selecciona un archivo CSV**", 
         type="csv",
         help="Columnas requeridas: user_utterances, conversation_name, turn_position"
     )
     
-    st.sidebar.markdown("---")
-    st.sidebar.markdown("""
-    ### 📋 Requisitos del archivo
-    
-    El archivo CSV debe contener las siguientes columnas:
-    - `user_utterances`: Mensajes del usuario
-    - `conversation_name`: ID de la conversación
-    - `turn_position`: Posición del turno
-    
-    ### 🔧 Columnas opcionales
-    - `intent_name`: Intent detectado
-    - `live_agent_handoff`: Escalamientos
-    - `end_session_exit`: Finalizaciones
-    """)
-    
-    st.sidebar.markdown("---")
-    st.sidebar.markdown("""
-    ### 📊 Sobre Alxedo
-    
-    Dashboard de análisis conversacional para optimizar 
-    la experiencia del cliente con nuestros purificadores 
-    de agua inteligentes.
-    
-    **Versión:** 1.0.0  
-    **Actualizado:** 2024
-    """)
+  
     
     return uploaded_file
 
