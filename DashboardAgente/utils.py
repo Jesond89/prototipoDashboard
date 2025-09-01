@@ -240,5 +240,45 @@ def get_custom_css():
         .plotly text {{
             fill: {ALXEDO_COLORS['dark_blue']} !important;
         }}
+        
+        /* Estilos personalizados para los cuadros de alerta y file_uploader */
+        
+        div[data-testid="stAlert"] {{
+            border-radius: 10px;
+            padding: 15px;
+        }}
+        
+        div[data-testid="stAlert-info"] {{
+            background-color: {ALXEDO_COLORS['primary_blue']};
+            color: white;
+        }}
+        
+        div[data-testid="stAlert-success"] {{
+            background-color: {ALXEDO_COLORS['success_green']};
+            color: white;
+        }}
+
+        [data-testid="stFileUploader"] {{
+            background-color: white !important;
+            border: 2px dashed {ALXEDO_COLORS['primary_blue']} !important;
+            border-radius: 10px;
+            padding: 10px;
+        }}
+
+        [data-testid="stFileUploader"] label, [data-testid="stFileUploader"] span, [data-testid="stFileUploader"] div, [data-testid="stFileUploader"] p {{
+            color: {ALXEDO_COLORS['dark_blue']} !important;
+        }}
+
+        [data-testid="stFileUploader-label"] + div button {{
+            background-color: {ALXEDO_COLORS['primary_blue']} !important;
+            color: white !important;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+        }}
+
+        .st-emotion-cache-1g8i730.e1f1d6z71 {{
+            color: {ALXEDO_COLORS['dark_blue']} !important;
+        }}
     </style>
     """
