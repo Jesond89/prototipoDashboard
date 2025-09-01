@@ -240,5 +240,47 @@ def get_custom_css():
         .plotly text {{
             fill: {ALXEDO_COLORS['dark_blue']} !important;
         }}
+
+        /* --- Estilos para los mensajes de alerta (info/success) --- */
+        div[data-testid="stAlert"] {{
+            border-radius: 10px;
+            padding: 15px;
+        }}
+        div[data-testid="stAlert-info"] {{
+            background-color: {ALXEDO_COLORS['primary_blue']};
+            color: white;
+        }}
+        div[data-testid="stAlert-success"] {{
+            background-color: {ALXEDO_COLORS['success_green']};
+            color: white;
+        }}
+        
+        /* --- Estilos para el uploader de archivos --- */
+        [data-testid="stFileUploader"] {{
+            /* Fondo blanco para el área de arrastrar y soltar */
+            background-color: white !important;
+            border: 2px dashed {ALXEDO_COLORS['primary_blue']} !important;
+            border-radius: 10px;
+            padding: 10px;
+        }}
+
+        /* Color del texto principal del uploader: "Drag and drop file here" y "Limit..." */
+        [data-testid="stFileUploader"] p {{
+            color: {ALXEDO_COLORS['dark_blue']} !important; 
+        }}
+        
+        /* Estilo para el botón de 'Browse files' */
+        [data-testid="stFileUploader"] section > div > button {{
+            background-color: {ALXEDO_COLORS['primary_blue']} !important;
+            color: white !important;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+        }}
+
+        /* Estilo para el texto dentro del botón */
+        [data-testid="stFileUploader"] section > div > button p {{
+            color: white !important;
+        }}
     </style>
     """

@@ -34,6 +34,44 @@ st.set_page_config(
 # --- APLICAR CSS PERSONALIZADO ---
 st.markdown(get_custom_css(), unsafe_allow_html=True)
 
+# CSS adicional para mejorar el file uploader en el sidebar
+st.markdown("""
+<style>
+    /* Solución específica para el file uploader en el sidebar */
+    [data-testid="stSidebar"] [data-testid="stFileUploaderDropzone"] {
+        background-color: rgba(255, 255, 255, 0.95) !important;
+        border-radius: 8px !important;
+    }
+    
+    /* Todos los elementos dentro del dropzone */
+    [data-testid="stSidebar"] [data-testid="stFileUploaderDropzone"] * {
+        color: #003F5C !important;
+    }
+    
+    /* El pequeño texto de instrucciones */
+    [data-testid="stSidebar"] [data-testid="stFileUploaderDropzone"] small {
+        color: #6C757D !important;
+        opacity: 1 !important;
+    }
+    
+    /* Botón Browse files mejorado */
+    [data-testid="stSidebar"] button[kind="secondary"] {
+        background-color: #00A9E0 !important;
+        color: white !important;
+        border: none !important;
+    }
+    
+    [data-testid="stSidebar"] button[kind="secondary"]:hover {
+        background-color: #FF8C42 !important;
+    }
+    
+    /* Para el texto "Drag and drop file here" */
+    [data-testid="stSidebar"] .uploadedFileName {
+        color: #003F5C !important;
+    }
+</style>
+""", unsafe_allow_html=True)
+
 # --- FUNCIONES DE RENDERIZADO ---
 
 def render_header():
@@ -240,7 +278,32 @@ def render_sidebar():
         help="Columnas requeridas: user_utterances, conversation_name, turn_position"
     )
     
-  
+    st.sidebar.markdown("---")
+    st.sidebar.markdown("""
+    ### 📋 Requisitos del archivo
+    
+    El archivo CSV debe contener las siguientes columnas:
+    - `user_utterances`: Mensajes del usuario
+    - `conversation_name`: ID de la conversación
+    - `turn_position`: Posición del turno
+    
+    ### 🔧 Columnas opcionales
+    - `intent_name`: Intent detectado
+    - `live_agent_handoff`: Escalamientos
+    - `end_session_exit`: Finalizaciones
+    """)
+    
+    st.sidebar.markdown("---")
+    st.sidebar.markdown("""
+    ### 📊 Sobre Alxedo
+    
+    Dashboard de análisis conversacional para optimizar 
+    la experiencia del cliente con nuestros purificadores 
+    de agua inteligentes.
+    
+    **Versión:** 1.0.0  
+    **Actualizado:** 2024
+    """)
     
     return uploaded_file
 
@@ -295,4 +358,3 @@ def main():
 # --- PUNTO DE ENTRADA ---
 if __name__ == "__main__":
     main()
-    
